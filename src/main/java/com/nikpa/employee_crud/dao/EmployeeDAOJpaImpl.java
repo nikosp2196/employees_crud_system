@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,7 +26,7 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
     public List<Employee> findAll() {
 
         // create a query
-        Query theQuery = entityManager.createQuery("from Employee");
+        Query theQuery = entityManager.createQuery("from Employee order by last_name");
 
         // execute query and get result list
         List<Employee> employees = theQuery.getResultList();
